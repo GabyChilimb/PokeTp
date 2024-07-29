@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function solicitudAJAX() {
-    var url = "https://pokeapi.co/api/v2/pokemon?limit=100"; // Limit to 100 Pokémon for simplicity
+    var url = "https://pokeapi.co/api/v2/pokemon?limit=1000"; // Limit to 100 Pokémon for simplicity
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
@@ -17,26 +17,6 @@ function solicitudAJAX() {
             var data = JSON.parse(xhr.responseText);
             // Store the data in a global variable
             window.pokemonData = data.results;
-        }
-    };
-    xhr.open("GET", url, true);
-    xhr.send();
-}
-
-function buscarPorURL(url) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            var container = document.getElementById("ConteinerCard");
-            var cardHTML = `
-                <div class="card">
-                    <img src="${data.sprites.other.home.front_default}" class="card-img-top" alt="${data.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${data.name}</h5>
-                    </div>
-                </div>`;
-            container.innerHTML = cardHTML; // Replace content with the found Pokémon
         }
     };
     xhr.open("GET", url, true);
