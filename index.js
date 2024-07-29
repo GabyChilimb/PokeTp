@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function solicitudAJAX() {
-    var url = "https://pokeapi.co/api/v2/pokemon?limit=1000"; // Limit to 100 Pokémon for simplicity
+    var url = "https://pokeapi.co/api/v2/pokemon?limit=1000"; 
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
-            // Store the data in a global variable
+
             window.pokemonData = data.results;
         }
     };
@@ -40,19 +40,11 @@ function buscarPorURL(url) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
             var container = document.getElementById("ConteinerCard");
-
-            // Obtener el tipo del Pokémon
             var tipos = data.types.map(function (tipo) {
                 return tipo.type.name;
             }).join(', ');
-
-            // Convertir el peso a kg (originalmente está en hectogramos)
             var peso = data.weight / 10;
-
-            // Convertir la altura a metros (originalmente está en decímetros)
             var altura = data.height / 10;
-
-            // Construir el HTML para la tarjeta del Pokémon
             var cardHTML =
                 `<div class="card">
                     <img src="${data.sprites.front_default}" class="card-img-top" alt="${data.name}">
@@ -64,7 +56,6 @@ function buscarPorURL(url) {
                     </div>
                 </div>`;
 
-            // Insertar la tarjeta del Pokémon en el contenedor
             container.innerHTML = cardHTML;
         }
     };
