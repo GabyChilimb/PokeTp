@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
     height: 100vh;
     background-image: url(css/pokemonFondo.avif);
 }
@@ -21,10 +21,10 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h4 {
-    text-align: center;
     color: #007bff;
     margin-bottom: 20px;
 }
@@ -62,19 +62,30 @@ button:hover {
     background-color: #0056b3;
 }
 
-#ConteinerCard {
-    display: block;
+.image-title-container {
+    width: 100%;
     text-align: center;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.image-title-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#ConteinerCard {
+    display: flex;
+    justify-content: center;
     max-width: 800px;
+    width: calc(300%);
 }
 
 .card {
-    width: calc(100%);
+    width: calc(300%);
     max-width: 300px;
-    margin: 20px auto; 
+    margin: 2px auto;
+    margin-top: 20px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 12px;
@@ -89,8 +100,8 @@ button:hover {
 .card img {
     width: 100%;
     height: auto;
-    display: block; 
-    margin: 0 auto; 
+    display: block;
+    margin: 0 auto;
     border-radius: 8px;
     margin-bottom: 10px;
 }
